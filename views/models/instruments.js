@@ -9,4 +9,4 @@ const instrumentsSchema = new mongoose.Schema({
 
 const Instrument = mongoose.model("Instrument", instrumentSchema); 
 
-module.exports = Fruit;
+module.exports = Instrument;
