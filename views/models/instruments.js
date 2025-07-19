@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const instrumentsSchema = new mongoose.Schema({
   name: String,
-  isReadyToPlay: Boolean,
+  isCool: Boolean,
 });
 
 const Instrument = mongoose.model("Instrument", instrumentSchema); 

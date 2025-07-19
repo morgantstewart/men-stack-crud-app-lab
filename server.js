@@ -13,6 +13,9 @@ const instrumentSchema = new mongoose.Schema({
 const Instrument = mongoose.model('instrument', instrumentSchema)
 module.exports = Instrument
 
+// const Instrument = require("./models/instrument.js");
+
+
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -28,6 +31,39 @@ app.get("/", async (req, res) => {
 app.get("/", async (req, res) => {
   res.render("index.ejs");
 });
+
+
+
+app.get("/instruments/new", (req, res) => {
+  res.render("instruments/new.ejs");
+});
+
+app.use(express.urlencoded({ extended: false }));
+
+// server.js
+
+
+app.post("/instruments", async (req, res) => {
+  console.log(req.body);
+  res.redirect("/instruments/new");
+});
+
+
+
+// server.js
+
+// POST /fruits
+app.post("/instruments", async (req, res) => {
+  if (req.body.isCool === "on") {
+    req.body.isCool = true;
+  } else {
+    req.body.isCool = false;
+  }
+  await Instrument.create(req.body);
+  res.redirect("/instruments/new");
+});
+
+
 
 
 app.listen(3000, () => {
