@@ -1,7 +1,12 @@
-const mongoose = require('mongoose')
 const dotenv = require("dotenv");
+const mongoose = require('mongoose')
 dotenv.config();
 const express = require("express"); const app = express();
+console.log(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on("connected", () => {
+    console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
+});
 
 
 const instrumentSchema = new mongoose.Schema({
@@ -13,12 +18,6 @@ const instrumentSchema = new mongoose.Schema({
 const Instrument = mongoose.model('instrument', instrumentSchema)
 module.exports = Instrument
 
-
-
-mongoose.connect(process.env.MONGODB_URI);
-mongoose.connection.on("connected", () => {
-    console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
-});
 
 
 
@@ -37,9 +36,9 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-
 app.post("/instruments", async (req, res) => {
     console.log(req.body);
+    
     res.redirect("/instruments/new");
 });
 
