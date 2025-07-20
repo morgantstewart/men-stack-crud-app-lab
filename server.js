@@ -70,6 +70,14 @@ app.get("/instruments", async (req, res) => {
 
 
 
+app.get("/instruments", async (req, res) => {
+  const allInstruments = await Fruit.find();
+  res.render("instruments/index.ejs", { instrument: allInstruments });
+});
+
+
+
+
 
 
 

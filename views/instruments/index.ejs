@@ -8,7 +8,14 @@
 </head>
 
 <body>
-    <h1>All Cool Instruments</h1>
+  <h1>All Instruments</h1>
+  <ul>
+    <% instrument.forEach(instrument => { %>
+      <li>
+        <a href="/instruments/<%= instrument._id %>"> <%= instrument.name %> </a>
+      </li>
+    <% }); %>
+  </ul>
 </body>
 
 </html>
