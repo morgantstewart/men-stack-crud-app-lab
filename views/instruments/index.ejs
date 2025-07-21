@@ -7,15 +7,17 @@
     <title>Cool Instruments Index</title>
 </head>
 
+
 <body>
   <h1>All Instruments</h1>
   <ul>
-    <% instrument.forEach(instrument => { %>
+    <% instruments.forEach(instrument => { %>
       <li>
         <a href="/instruments/<%= instrument._id %>"> <%= instrument.name %> </a>
       </li>
     <% }); %>
   </ul>
 </body>
+
 
 </html>

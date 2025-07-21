@@ -7,6 +7,6 @@ const instrumentsSchema = new mongoose.Schema({
   isCool: Boolean,
 });
 
-const Instrument = mongoose.model("Instrument", instrumentSchema); 
 
-module.exports = Instrument;
+const Instrument = mongoose.model('instrument', instrumentsSchema)
+module.exports = Instrument
