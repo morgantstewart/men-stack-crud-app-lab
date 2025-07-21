@@ -44,14 +44,6 @@ app.post("/instruments", async (req, res) => {
 
 
 
-//GET instruments
-
-// app.get("/instruments", async (req, res) => {
-//     const allInstruments = await Instrument.find();
-//     console.log(allInstruments);
-//     res.send("Welcome to the cool instruments index page.");
-// });
-
 
 //GET /Instruments
 app.get("/instruments", async (req, res) => {
@@ -66,6 +58,8 @@ app.get("/instruments/new", (req, res) => {
 });
 
 
+
+//GET instruments/:id  
 app.get("/instruments/:instrumentId", async (req, res) => {
   const foundInstrument = await Instrument.findById(req.params.instrumentId);
   res.render('instruments/show.ejs', {instrument: foundInstrument });
@@ -83,6 +77,42 @@ app.post("/instruments", async (req, res) => {
     await Instrument.create(req.body);
     res.redirect("/instruments/new");
 });
+
+
+
+
+//GET instruments/:id/edit
+// Shows a form to edit an existing instrument
+
+app.get("/instruments/:id/edit", async (req, res) => {
+  const foundInstrument = await Instrument.findById(req.params.instrumentId);
+  res.render('instruments/show.ejs', {instrument: foundInstrument });
+  
+});
+
+
+
+//PUT instruments/:id 
+// edit an existing instrument
+
+
+app.put("/instruments/:instrumentId", async (req, res) => {
+
+  if (req.body.isCool === "on") {
+    req.body.isCool = true;
+  } else {
+    req.body.isCool = false;
+  }
+  
+  await Instrument.findByIdAndUpdate(req.params.instrumentId, req.body);
+
+  res.redirect(`/instruments/${req.params.instrumentId}`);
+});
+
+
+
+//
+
 
 
 //DELETE route
