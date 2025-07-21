@@ -27,7 +27,6 @@ app.get("/", async (req, res) => {
 });
 
 
-
 app.get("/instruments/new", (req, res) => {
     res.render("instruments/new.ejs");
 });
@@ -73,6 +72,15 @@ app.get("/instruments", async (req, res) => {
   const allInstruments = await Fruit.find();
   res.render("instruments/index.ejs", { instrument: allInstruments });
 });
+
+
+
+//DELETE route
+app.delete("/fruits/:fruitId", async (req, res) => {
+  await Fruit.findByIdAndDelete(req.params.fruitId);
+res.redirect('/fruits');
+});
+
 
 
 

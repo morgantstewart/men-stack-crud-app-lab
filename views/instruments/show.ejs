@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= instrument.name %></title>
+</head>
+<body>
+   <h1><%= instrument.name %></h1>
+<% if(instrument.isCool){ %>
+<p>This instrument is cool. </p>
+<% } else { %>
+<p>This instrument is NOT cool.</p>
+<% } %>
+
+
+
+<form action="/instruments/<%=instrument._id%>?_method=DELETE" method="POST">
+  <button type="submit">Delete <%= instrument.name %></button>
+</form>
+
+
+<a href="/instruments">Back to Instruments</a>
+</body>
+</html>
