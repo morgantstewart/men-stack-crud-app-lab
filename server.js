@@ -84,10 +84,11 @@ app.post("/instruments", async (req, res) => {
 //GET instruments/:id/edit
 // Shows a form to edit an existing instrument
 
-app.get("/instruments/:Id/edit", async (req, res) => {
+app.get("/instruments/:instrumentID/edit", async (req, res) => {
   const foundInstrument = await Instrument.findById(req.params.instrumentId);
-  res.render('instruments/show.ejs', {instrument: foundInstrument });
-  
+  res.render("instruments/edit.ejs", {
+    instrument: foundInstrument,
+  });
 });
 
 
@@ -111,7 +112,22 @@ app.put("/instruments/:instrumentId", async (req, res) => {
 
 
 
-//
+// UPDATE /replace existing instrument
+
+app.put("/instruments/:instrumentId", async (req, res) => {
+  if (req.body.isCool === "on") {
+    req.body.isCool = true;
+  } else {
+    req.body.isCool = false;
+  }
+  
+  await Instrument.findByIdAndUpdate(req.params.instrumentId, req.body);
+
+  res.redirect(`/instruments/${req.params.instrumentId}`);
+});
+
+
+
 
 
 

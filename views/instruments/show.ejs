@@ -2,37 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Instrument</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Instrument</title>
 </head>
+
 <body>
-   <h1>Edit <%= instrument.name %></h1>
-<% if(instrument.isCool){ %>
-<p>This instrument is cool. </p>
-<% } else { %>
-<p>This instrument is NOT cool.</p>
-<% } %>
+  <h1>Edit <%= instrument.name %>
+  </h1>
+  <% if(instrument.isCool){ %>
+    <p>This instrument is cool. </p>
+    <% } else { %>
+      <p>This instrument is NOT cool.</p>
+      <% } %>
 
-<form action="/instruments/<%=instrument._id%>?_method=EDIT" method="POST">
-            <!-- <label for="name">Name:</label>
-            <input type="text" name="name" id="name" /> -->
-            <label for="isCool">Is it still Cool?</label>
-            <input type="checkbox" name="isCool" id="isCool" />
+        <form action="/instruments/<%=instrument._id%>?_method=GET" method="GET">
 
-            <button type="submit">Edit Instrument</button>
-          </form> 
+          <label for="isCool">Is it Cool?</label>
+          <input type="checkbox" name="isCool" id="isCool" />
+          <button type="submit">Edit <%= instrument.name %></button>
+        </form>
 
+ <form action="/instruments/<%=instrument._id%>/edit=PUT" method="PUT">
 
-
-<form action="/instruments/<%=instrument._id%>?_method=UPDATE" method="POST">
-  <button type="submit">Update <%= instrument.name %></button>
-</form>
-
-
-
-<a href="/instruments/<%= instrument._id %>/edit">Edit <%= instrument.name %></a>
-<a href="/instruments">Back to Instruments</a>
+     <br><a href="/instruments">Back to Instruments</a>
 
 </body>
+
 </html>

@@ -4,19 +4,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-         <form action="/instruments" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" />
-            <label for="isCool">Is it Cool?</label>
-            <input type="checkbox" name="isCool" id="isCool" />
 
-            <button type="submit">Add Instrument</button>
-        </form>
+<body>
+    <h1>Edit <%= instrument.name %>
+    </h1>
+    <form action="/instruments/<%=instrument._id%>?_method=PUT" method="POST"></form>
+
+    <label for="name">Name:</label>
+<input type="text" name="name" value="<%= fruit.name %>" />
+
+    <label for="isCool">Is this instrument cool?</label>
+<input type="checkbox" name="isCool" <% if (instrument.isCool) { %>checked<% } %> >
+    <button type="submit">Update Instrument</button>
+    </form>
+    <br><a href="/instruments">Back to Instruments</a>
 </body>
+
 </html>
