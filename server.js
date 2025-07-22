@@ -84,7 +84,7 @@ app.post("/instruments", async (req, res) => {
 //GET instruments/:id/edit
 // Shows a form to edit an existing instrument
 
-app.get("/instruments/:id/edit", async (req, res) => {
+app.get("/instruments/:Id/edit", async (req, res) => {
   const foundInstrument = await Instrument.findById(req.params.instrumentId);
   res.render('instruments/show.ejs', {instrument: foundInstrument });
   

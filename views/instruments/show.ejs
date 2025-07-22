@@ -7,7 +7,7 @@
     <title>Edit Instrument</title>
 </head>
 <body>
-   <h1>Edit Instrument</h1>
+   <h1>Edit <%= instrument.name %></h1>
 <% if(instrument.isCool){ %>
 <p>This instrument is cool. </p>
 <% } else { %>
@@ -15,15 +15,24 @@
 <% } %>
 
 <form action="/instruments/<%=instrument._id%>?_method=EDIT" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" />
-            <label for="isCool">Is it Cool?</label>
+            <!-- <label for="name">Name:</label>
+            <input type="text" name="name" id="name" /> -->
+            <label for="isCool">Is it still Cool?</label>
             <input type="checkbox" name="isCool" id="isCool" />
 
             <button type="submit">Edit Instrument</button>
-          </form>
+          </form> 
 
 
+
+<form action="/instruments/<%=instrument._id%>?_method=UPDATE" method="POST">
+  <button type="submit">Update <%= instrument.name %></button>
+</form>
+
+
+
+<a href="/instruments/<%= instrument._id %>/edit">Edit <%= instrument.name %></a>
 <a href="/instruments">Back to Instruments</a>
+
 </body>
 </html>
