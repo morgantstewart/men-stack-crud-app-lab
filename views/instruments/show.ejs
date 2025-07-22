@@ -19,13 +19,20 @@
         <form action="/instruments/<%=instrument._id%>?_method=GET" method="GET">
 
           <label for="isCool">Is it Cool?</label>
-          <input type="checkbox" name="isCool" id="isCool" />
-          <button type="submit">Edit <%= instrument.name %></button>
+          <input type="checkbox" name="isCool" <% if (instrument.isCool) { %>checked<% } %> >
+
+            <button type="submit">Update Instrument</button>
+
         </form>
 
- <form action="/instruments/<%=instrument._id%>/edit=PUT" method="PUT">
 
-     <br><a href="/instruments">Back to Instruments</a>
+
+
+
+
+
+
+        <br><a href="/instruments">Back to Instruments</a>
 
 </body>
 

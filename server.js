@@ -17,21 +17,19 @@ mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
-
-
 // GET 
 app.get("/", async (req, res) => {
     res.render("index.ejs");
 });
 
 
-//GET fruits/new
+//GET instruments/new
 app.get("/instruments/new", (req, res) => {
     res.render("instruments/new.ejs");
 });
 
 
-//POST /fruits
+//POST /instruments
 app.post("/instruments", async (req, res) => {
   if (req.body.isCool === "on") {
     req.body.isCool = true;
@@ -113,6 +111,7 @@ app.put("/instruments/:instrumentId", async (req, res) => {
 
 
 // UPDATE /replace existing instrument
+//Had issues with this!
 
 app.put("/instruments/:instrumentId", async (req, res) => {
   if (req.body.isCool === "on") {
@@ -122,7 +121,6 @@ app.put("/instruments/:instrumentId", async (req, res) => {
   }
   
   await Instrument.findByIdAndUpdate(req.params.instrumentId, req.body);
-
   res.redirect(`/instruments/${req.params.instrumentId}`);
 });
 
