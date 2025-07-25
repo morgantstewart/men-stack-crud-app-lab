@@ -157,6 +157,23 @@ app.get("/instruments/:instrumentId/edit", async (req, res) => {
 });
 
 
+
+app.put("/instruments/:instrumentId", async (req, res) => {
+  if (req.body.isCool === "on") {
+    req.body.isCool = true;
+  } else {
+    req.body.isCool = false;
+  }
+  
+  await Instrument.findByIdAndUpdate(req.params.instrumentId, req.body);
+
+  
+  res.redirect(`/instruments/${req.params.instrumentId}`);
+});
+
+
+
+
 app.listen(3000, () => {
     console.log('Listening on port 3000');
 });

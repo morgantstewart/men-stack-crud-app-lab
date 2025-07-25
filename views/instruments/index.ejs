@@ -3,25 +3,27 @@
 
 <head>
   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="/stylesheets/style.css" />
-   
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cool Instruments Index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cool Instruments Index</title>
 </head>
 
 
 <body>
   <h1>All Instruments</h1>
   <ul>
-    <% instruments.forEach(instrument => { %>
+    <% instruments.forEach(instrument=> { %>
       <li>
-        <a href="/instruments/<%= instrument._id %>"> <%= instrument.name %> </a>
+        <a href="/instruments/<%= instrument._id %>">
+          <%= instrument.name %>
+        </a>
       </li>
-    <% }); %>
+      <% }); %>
   </ul>
-   <br><a href="/instruments/new">Add a new Instrument</a>
+  <br><a href="/instruments/new">Add a new Instrument</a>
 </body>
 
 
