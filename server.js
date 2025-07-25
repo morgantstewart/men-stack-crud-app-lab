@@ -115,8 +115,9 @@ app.put("/instruments/:instrumentId", async (req, res) => {
 
 
 
-// UPDATE /replace existing instrument
-//Had issues with this!
+
+// server.js
+
 
 app.put("/instruments/:instrumentId", async (req, res) => {
   if (req.body.isCool === "on") {
@@ -128,9 +129,6 @@ app.put("/instruments/:instrumentId", async (req, res) => {
   await Instrument.findByIdAndUpdate(req.params.instrumentId, req.body);
   res.redirect(`/instruments/${req.params.instrumentId}`);
 });
-
-
-
 
 
 

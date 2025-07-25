@@ -15,15 +15,12 @@
     <% } else { %>
       <p>This instrument is NOT cool.</p>
       <% } %>
+        <a href="/instruments/<%= instrument._id %>/edit">Edit Instrument</a>
 
-       <!-- <button type="submit">Submit</button> -->
-
-  <a href="/instruments/<%= instrument._id %>/edit">Edit Instrument</a>
-
-
-
+        <form action="/instruments/<%=instrument._id%>?_method=DELETE" method="POST">
+          <br><button type="submit">Delete <%= instrument.name %></button>
+        </form>
         <br><a href="/instruments">Back to Instruments</a>
-
 </body>
 
 </html>
