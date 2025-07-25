@@ -18,10 +18,12 @@
 
     <label for="isCool">Is it cool?</label>
    <input type="checkbox" name="isCool" <% if (instrument.isCool) { %>checked<% } %> >
-
-    <button type="submit">Update Instrument</button>
   </form>
-  <a href="/instruments">Back to All Instruments</a>
+
+  <br><br><br><button type="submit">Update Instrument</button>
+   <br><button type="submit">Delete <%= instrument.name%>!</button>
+  <br><br><a href="/instruments">Back to Instruments</a>
+  <br><a href="/">See Homepage</a>
 </body>
 
 </body>

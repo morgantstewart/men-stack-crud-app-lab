@@ -18,9 +18,10 @@
         <a href="/instruments/<%= instrument._id %>/edit">Edit Instrument</a>
 
         <form action="/instruments/<%=instrument._id%>?_method=DELETE" method="POST">
-          <br><button type="submit">Delete <%= instrument.name %></button>
+          <br><button type="submit">Delete <%= instrument.name%>!</button>
         </form>
         <br><a href="/instruments">Back to Instruments</a>
+          <br><a href="/">See Homepage</a>
 </body>
 
 </html>
