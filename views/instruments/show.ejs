@@ -16,19 +16,9 @@
       <p>This instrument is NOT cool.</p>
       <% } %>
 
-        <form action="/instruments/<%=instrument._id%>?_method=GET" method="GET">
+       <!-- <button type="submit">Submit</button> -->
 
-          <label for="isCool">Is it Cool?</label>
-          <input type="checkbox" name="isCool" <% if (instrument.isCool) { %>checked<% } %> >
-
-            <button type="submit">Update Instrument</button>
-
-        </form>
-
-
-
-
-
+  <a href="/instruments/<%= instrument._id %>/edit">Edit Instrument</a>
 
 
 

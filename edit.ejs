@@ -9,15 +9,21 @@
 </head>
 <body>
   <h1>Edit <%= instrument.name %></h1>
-  <form action="/instruments" method="POST">
+  <body>
+
+  <h1>Edit <%= instrument.name %></h1>
+  <form action="/instruments/<%=instrument._id%>?_method=PUT" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" />
 
     <label for="isCool">Is it cool?</label>
-    <input type="checkbox" name="isCool" id="isCool" />
+   <input type="checkbox" name="isCool" <% if (instrument.isCool) { %>checked<% } %> >
+
     <button type="submit">Update Instrument</button>
   </form>
-  <a href="/instruments">Back to Instruments</a>
+  <a href="/instruments">Back to All Instruments</a>
+</body>
+
 </body>
 </html>
 <

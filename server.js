@@ -82,17 +82,22 @@ app.post("/instruments", async (req, res) => {
 //GET instruments/:id/edit
 // Shows a form to edit an existing instrument
 
-app.get("/instruments/:instrumentID/edit", async (req, res) => {
+app.get("/instruments/:instrumentId/edit", async (req, res) => {
   const foundInstrument = await Instrument.findById(req.params.instrumentId);
   res.render("instruments/edit.ejs", {
     instrument: foundInstrument,
   });
 });
 
-
+// see if it's finding instrument, getting params, see where it's breaking
 
 //PUT instruments/:id 
 // edit an existing instrument
+
+
+
+
+
 
 
 app.put("/instruments/:instrumentId", async (req, res) => {
@@ -135,6 +140,13 @@ app.delete("/instruments/:instrumentId", async (req, res) => {
 res.redirect("/instruments");
 });
 
+
+app.get("/instruments/:instrumentId/edit", async (req, res) => {
+  const foundInstrument = await Instrument.findById(req.params.instrumentId);
+  res.render("instruments/edit.ejs", {
+    instrument: foundInstrument,
+  });
+});
 
 
 app.listen(3000, () => {
