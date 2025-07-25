@@ -8,8 +8,18 @@ const Instrument = require("./models/instruments.js");
 
 const methodOverride = require('method-override')
 
-app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride("_method")); 
+ // new code below this line
+ const path = require("path");
+
+
+ app.use(express.urlencoded({ extended: false }));
+ app.use(methodOverride("_method"));
+
+ app.use(express.static(path.join(__dirname, "public")));
+
+ app.get("/", async (req, res) => {
+   res.render("index.ejs");
+ });
 
 
 
